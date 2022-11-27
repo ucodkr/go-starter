@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-	"path"
+	"path/filepath"
 	"sync"
 	"syscall"
 )
@@ -28,7 +28,7 @@ var (
 	waitChan    chan bool      = make(chan bool, 1)
 	signalChan  chan os.Signal = make(chan os.Signal, 1)
 	appPath     string         = os.Args[0]
-	appName     string         = path.Base(appPath)
+	appName     string         = filepath.Base(appPath)
 	pidPath     string         = "./" + appName + ".pid"
 )
 
